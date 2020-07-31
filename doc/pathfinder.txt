@@ -24,7 +24,7 @@ requirenent is that you need to set up 'path' for you current buffer.
                                 *PathFinder-commands* *pathfinder-commands*
 
 PathFinder doesn't provide ready to use commands, but you can easily create
-your own commands using provided function.
+your own commands using provided functions.
 
 Examples:
 -  Search files using ripgrep and fzf

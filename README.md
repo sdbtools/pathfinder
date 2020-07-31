@@ -22,7 +22,7 @@ Commands
 --------
 
 PathFinder doesn't provide ready to use commands, but you can easily create
-your own commands using provided function.
+your own commands using provided functions.
 
 Examples:
 
