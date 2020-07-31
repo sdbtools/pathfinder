@@ -2,7 +2,7 @@ pathfinder.vim
 ==============
 
 PathFinder is a tool which is using grep/ripgrep and fzf/fzy for searching
-plain-text data sets for lines that match a regular expression in multiple folders simulteneously.
+plain-text data sets for lines that match a regular expression in multiple folders simultaneously.
 
 Features
 --------
@@ -10,7 +10,7 @@ Features
 The main difference of PathFinder from other tools is that unlike majority
 of grep-like tools, which are searching in only one folder (usually, 
 currrent working dorectory), PathFinder is searching in multiple places
-simulteneously. PathFinder is using option 'path' to get a list of folders
+simultaneously. PathFinder is using option 'path' to get a list of folders
 to search in. Current working directory is ignored by default. This means
 that you can launch vim in any folder and safely use PathFinder. It won't
 try to check all files in your home directory, or even worse, whole file
