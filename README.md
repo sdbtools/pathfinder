@@ -2,7 +2,7 @@ pathfinder.vim
 ==============
 
 PathFinder is a tool which is using grep/ripgrep and fzf/fzy for searching
-plain-text data sets for lines that match a regular expressionn multiple folders simulteneously.
+plain-text data sets for lines that match a regular expression in multiple folders simulteneously.
 
 Features
 --------
@@ -39,7 +39,7 @@ If you run this command with a bang, PathFinder will search in all files.
 command! -bang -nargs=* PFpicker call pathfinder#picker(<q-args>, #{file_type:<bang>1})
 ```
 This is the fastest option.
-Use a bang to remove the file type constraint.
+Use a bang to remove a file type constraint.
 
 -  Search files using grep
 ```
@@ -54,6 +54,8 @@ Functions
 - pathfinder#fzf(args, opts): repgrep + zfz. Requires [fzf.vim](https://github.com/junegunn/fzf.vim).
 - pathfinder#picker(args, opts): repgrep + zfy. Requires [vim-picker](https://github.com/srstevenson/vim-picker).
 - pathfinder#grep(args, opts): plain grep.
+
+Arguments:
 
 - args is a search expression
 - opts is a dictionary with options
