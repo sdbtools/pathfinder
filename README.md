@@ -60,10 +60,11 @@ Arguments:
 - args is a search expression
 - opts is a dictionary with options
 
-There are currently three options:
+There are currently four options:
 
 - 'ignore_cwd': ignore current working directory. Default value is 1.
 - 'file_type': use file type of the current file. Default value is 1.
+- 'type-add': add current file extension and its vim file type to ripgrep's list of file types. Default value is 1.
 - 'color': use color with ripgrep. Default value is 'never'.
 
 Extra Notes

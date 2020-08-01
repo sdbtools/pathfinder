@@ -18,7 +18,7 @@ function! s:make_folder_list(opts) abort
                 let l:cur_path = getcwd()
             endif
         endif
-        let l:folders += [shellescape(fnamemodify(l:cur_path, ":."))]
+        let l:folders += [shellescape(fnamemodify(l:cur_path, ":~:."))]
     endfor
     return l:folders
 endfunction
@@ -26,16 +26,20 @@ endfunction
 function! s:make_ripgrep_cmd(args, opts) abort
     let l:color = ' --color='.get(a:opts, 'color', 'never')
     let l:file_type = ''
+    let l:ft = &filetype
     let l:folders = s:make_folder_list(a:opts)
-    if get(a:opts, 'file_type', 1)
-        let l:file_type = ' --type '.&filetype
+    if get(a:opts, 'file_type', 1) && l:ft != ''
+        if get(a:opts, 'type-add', 1)
+            let l:file_type .= ' --type-add '.shellescape(l:ft.':*.'.expand('%:e'))
+        endif
+        let l:file_type .= ' --type '.l:ft
     endif
     let l:cmd = 'rg'.l:color.' --column --line-number --no-heading --smart-case'.l:file_type.' -- '.shellescape(a:args).' '.join(l:folders, ' ')
     " echo l:cmd
     return l:cmd
 endfunction
 
-function! s:PickerRgLineHandler(selection) abort
+function! pathfinder#pickerRgLineHandler(selection) abort
     let parts = split(a:selection, ':')
     return {'filename': parts[0], 'line': parts[1], 'column': parts[2]}
 endfunction
@@ -47,7 +51,7 @@ endfunction
 
 function! pathfinder#picker(args, opts) abort
     let l:cmd = s:make_ripgrep_cmd(a:args, a:opts)
-    call picker#File(l:cmd, 'edit', {'line_handler': 's:PickerRgLineHandler'})
+    call picker#File(l:cmd, 'edit', {'line_handler': 'pathfinder#pickerRgLineHandler'})
 endfunction
 
 function! pathfinder#grep(args, opts) abort
