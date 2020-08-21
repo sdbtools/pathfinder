@@ -80,5 +80,5 @@ Credits
 
 - [vim](https://www.vim.org/)
 
-Copyright 2020 Sergey Sikorskiy.
+Copyright 2020 sdbtools.
 

@@ -18,7 +18,7 @@ function! s:make_folder_list(opts) abort
                 let l:cur_path = getcwd()
             endif
         endif
-        let l:folders += [shellescape(fnamemodify(l:cur_path, ":~:."))]
+        let l:folders += [fnamemodify(l:cur_path, ":~:.")]
     endfor
     return l:folders
 endfunction
